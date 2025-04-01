@@ -83,7 +83,7 @@ def animate(i):
 	return line, line2, t1
 
 interval=1e3 #slow
-# interval=1e2 #fast
+interval=1e2 #fast
 ani = animation.FuncAnimation(fig, animate, frames=len(grad_lines), 
 			interval=interval, blit=True)
 

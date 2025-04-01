@@ -19,7 +19,7 @@ m = 0.1
 c = 20
 
 # Learning rates for m and c:
-lr_m = 0.0001
+lr_m = 0.100
 lr_c = 0.1
 
 epochs = 3000  # The number of iterations to perform gradient descent
