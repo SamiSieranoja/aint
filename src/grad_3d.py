@@ -5,12 +5,13 @@ from mpl_toolkits.mplot3d import Axes3D
 
 # Define the function to minimize
 def f(x, y):
-    return x**2 + 2*y**2 
+    # return x**2 + 2*y**2 
+    return 3*x**2 + y**2 
 
 # Compute the gradient of the function
 def grad_f(x, y):
-    df_dx = 2 * x
-    df_dy = 4 * y
+    df_dx = 6 * x
+    df_dy = 2 * y
     return np.array([df_dx, df_dy])
 
 # Gradient descent parameters
