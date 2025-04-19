@@ -9,8 +9,8 @@ def f(x, y):
 
 # Compute the gradient of the function
 def grad_f(x, y):
-    df_dx = 6 * x
-    df_dy = 2 * y
+    df_dx = 2 * x
+    df_dy = 4 * y
     return np.array([df_dx, df_dy])
 
 # Gradient descent parameters
