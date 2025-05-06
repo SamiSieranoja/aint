@@ -1,0 +1,646 @@
+robin has feathers for flight
+robin has feathers for insulation
+robin has feathers for display
+robin has a beak
+robin dont have teeth
+robin has a hard beak
+robin lays eggs
+robin breeds in a nest
+robin has hollow bones
+robin has wings
+robin has high metabolic rate
+robin is warm-blooded
+robin has a four-chambered heart
+robin has air sacs and lungs
+robin is a bird
+robin has a backbone
+robin has an internal skeleton
+sparrow has feathers
+sparrow has feathers for insulation
+sparrow has feathers for display
+sparrow has a beak
+sparrow dont have teeth
+sparrow has a hard beak
+sparrow lays eggs
+sparrow lays hard-shelled eggs
+sparrow breeds in a nest
+sparrow has high metabolic rate
+sparrow is warm-blooded
+sparrow has a four-chambered heart
+sparrow has air sacs and lungs
+sparrow is a bird
+sparrow has a backbone
+sparrow has an internal skeleton
+crow has feathers for flight
+crow has feathers for insulation
+crow has feathers for display
+crow has a beak
+crow dont have teeth
+crow has a hard beak
+crow lays eggs
+crow lays hard-shelled eggs
+crow breeds in a nest
+crow has hollow bones
+crow has wings
+crow has high metabolic rate
+crow has a four-chambered heart
+crow has specialized respiratory system for continuous airflow and oxygen exchange
+crow has a backbone
+crow has an internal skeleton
+eagle has feathers
+eagle has feathers for flight
+eagle has feathers for insulation
+eagle has feathers for display
+eagle has a beak
+eagle dont have teeth
+eagle has a hard beak
+eagle lays eggs
+eagle lays hard-shelled eggs
+eagle breeds in a nest
+eagle has wings
+eagle has high metabolic rate
+eagle is warm-blooded
+eagle has air sacs and lungs
+eagle has specialized respiratory system for continuous airflow and oxygen exchange
+eagle is a bird
+eagle has an internal skeleton
+owl has feathers
+owl has feathers for flight
+owl has feathers for insulation
+owl has feathers for display
+owl has a beak
+owl dont have teeth
+owl lays eggs
+owl lays hard-shelled eggs
+owl breeds in a nest
+owl has hollow bones
+owl has high metabolic rate
+owl is warm-blooded
+owl has air sacs and lungs
+owl has specialized respiratory system for continuous airflow and oxygen exchange
+owl is a bird
+owl has a backbone
+owl has an internal skeleton
+falcon has feathers for flight
+falcon has feathers for display
+falcon dont have teeth
+falcon lays eggs
+falcon lays hard-shelled eggs
+falcon breeds in a nest
+falcon has hollow bones
+falcon has wings
+falcon has high metabolic rate
+falcon is warm-blooded
+falcon has a four-chambered heart
+falcon has air sacs and lungs
+falcon has specialized respiratory system for continuous airflow and oxygen exchange
+falcon is a bird
+falcon has a backbone
+falcon has an internal skeleton
+pigeon has feathers for insulation
+pigeon dont have teeth
+pigeon has a hard beak
+pigeon lays hard-shelled eggs
+pigeon breeds in a nest
+pigeon has wings
+pigeon has high metabolic rate
+pigeon is warm-blooded
+pigeon has a four-chambered heart
+pigeon has air sacs and lungs
+pigeon has specialized respiratory system for continuous airflow and oxygen exchange
+pigeon has a backbone
+pigeon has an internal skeleton
+pelican has feathers
+pelican has feathers for flight
+pelican has feathers for insulation
+pelican has feathers for display
+pelican has a beak
+pelican has a hard beak
+pelican lays eggs
+pelican lays hard-shelled eggs
+pelican breeds in a nest
+pelican has hollow bones
+pelican has wings
+pelican is warm-blooded
+pelican has a four-chambered heart
+pelican has air sacs and lungs
+pelican has specialized respiratory system for continuous airflow and oxygen exchange
+pelican has a backbone
+pelican has an internal skeleton
+heron has feathers
+heron has feathers for flight
+heron has feathers for insulation
+heron has feathers for display
+heron has a beak
+heron dont have teeth
+heron has a hard beak
+heron has hollow bones
+heron has wings
+heron has high metabolic rate
+heron is warm-blooded
+heron has a four-chambered heart
+heron has air sacs and lungs
+heron has specialized respiratory system for continuous airflow and oxygen exchange
+heron is a bird
+heron has a backbone
+heron has an internal skeleton
+parrot has feathers
+parrot has feathers for flight
+parrot has feathers for display
+parrot has a beak
+parrot dont have teeth
+parrot has a hard beak
+parrot lays hard-shelled eggs
+parrot has wings
+parrot has high metabolic rate
+parrot is warm-blooded
+parrot has a four-chambered heart
+parrot has air sacs and lungs
+parrot has specialized respiratory system for continuous airflow and oxygen exchange
+parrot has a backbone
+parrot has an internal skeleton
+canary has feathers
+canary has feathers for insulation
+canary has feathers for display
+canary dont have teeth
+canary lays eggs
+canary lays hard-shelled eggs
+canary breeds in a nest
+canary has high metabolic rate
+canary is warm-blooded
+canary has specialized respiratory system for continuous airflow and oxygen exchange
+canary is a bird
+canary has a backbone
+canary has an internal skeleton
+peacock has feathers
+peacock has feathers for flight
+peacock has feathers for insulation
+peacock has feathers for display
+peacock has a beak
+peacock dont have teeth
+peacock has a hard beak
+peacock lays eggs
+peacock lays hard-shelled eggs
+peacock has hollow bones
+peacock has wings
+peacock has high metabolic rate
+peacock is warm-blooded
+peacock has a four-chambered heart
+peacock has air sacs and lungs
+peacock is a bird
+peacock has an internal skeleton
+flamingo has feathers
+flamingo has feathers for flight
+flamingo has feathers for insulation
+flamingo has a beak
+flamingo has a hard beak
+flamingo lays eggs
+flamingo lays hard-shelled eggs
+flamingo breeds in a nest
+flamingo has hollow bones
+flamingo has wings
+flamingo has high metabolic rate
+flamingo is warm-blooded
+flamingo has a four-chambered heart
+flamingo has air sacs and lungs
+flamingo is a bird
+flamingo has an internal skeleton
+magpie has feathers
+magpie has feathers for flight
+magpie has feathers for display
+magpie has a beak
+magpie has a hard beak
+magpie lays eggs
+magpie lays hard-shelled eggs
+magpie breeds in a nest
+magpie has high metabolic rate
+magpie is warm-blooded
+magpie has a four-chambered heart
+magpie has air sacs and lungs
+magpie has specialized respiratory system for continuous airflow and oxygen exchange
+magpie has a backbone
+magpie has an internal skeleton
+jay has feathers for display
+jay has a beak
+jay lays eggs
+jay lays hard-shelled eggs
+jay breeds in a nest
+jay has wings
+jay has high metabolic rate
+jay is warm-blooded
+jay has a four-chambered heart
+jay has air sacs and lungs
+jay has specialized respiratory system for continuous airflow and oxygen exchange
+jay is a bird
+jay has a backbone
+jay has an internal skeleton
+kite has feathers
+kite has feathers for flight
+kite has feathers for insulation
+kite dont have teeth
+kite has a hard beak
+kite lays hard-shelled eggs
+kite breeds in a nest
+kite has hollow bones
+kite has wings
+kite has high metabolic rate
+kite is warm-blooded
+kite has a four-chambered heart
+kite has specialized respiratory system for continuous airflow and oxygen exchange
+kite has a backbone
+kite has an internal skeleton
+cormorant has feathers
+cormorant has feathers for flight
+cormorant has feathers for display
+cormorant dont have teeth
+cormorant lays hard-shelled eggs
+cormorant breeds in a nest
+cormorant has hollow bones
+cormorant has high metabolic rate
+cormorant is warm-blooded
+cormorant has air sacs and lungs
+cormorant has specialized respiratory system for continuous airflow and oxygen exchange
+cormorant is a bird
+cormorant has a backbone
+cormorant has an internal skeleton
+penguin has feathers for flight
+penguin has feathers for insulation
+penguin has feathers for display
+penguin has a beak
+penguin dont have teeth
+penguin has a hard beak
+penguin lays eggs
+penguin lays hard-shelled eggs
+penguin breeds in a nest
+penguin has wings
+penguin has high metabolic rate
+penguin is warm-blooded
+penguin has a four-chambered heart
+penguin has air sacs and lungs
+penguin has specialized respiratory system for continuous airflow and oxygen exchange
+penguin has a backbone
+penguin has an internal skeleton
+albatross has feathers
+albatross has feathers for display
+albatross has a beak
+albatross dont have teeth
+albatross lays eggs
+albatross lays hard-shelled eggs
+albatross has hollow bones
+albatross has wings
+albatross has high metabolic rate
+albatross is warm-blooded
+albatross has a four-chambered heart
+albatross has air sacs and lungs
+albatross has specialized respiratory system for continuous airflow and oxygen exchange
+albatross is a bird
+albatross has a backbone
+albatross has an internal skeleton
+kingfisher has feathers
+kingfisher has feathers for flight
+kingfisher has feathers for display
+kingfisher has a beak
+kingfisher dont have teeth
+kingfisher has a hard beak
+kingfisher lays eggs
+kingfisher has hollow bones
+kingfisher has high metabolic rate
+kingfisher is warm-blooded
+kingfisher has a four-chambered heart
+kingfisher has specialized respiratory system for continuous airflow and oxygen exchange
+kingfisher is a bird
+kingfisher has an internal skeleton
+elephant is warm-blooded
+elephant is a mammal
+elephant has mammary glands
+elephant has specialized teeth
+elephant has large large brains
+elephant dont lay eggs
+elephant has an internal skeleton
+giraffe is warm-blooded
+giraffe is a mammal
+giraffe has lungs for breathing
+giraffe has specialized teeth
+giraffe has large large brains
+giraffe dont lay eggs
+giraffe has a backbone 
+giraffe has an internal skeleton
+zebra is warm-blooded
+zebra is a mammal
+zebra has hair or fur
+zebra has mammary glands
+zebra has lungs for breathing
+zebra has specialized teeth
+zebra has large large brains
+zebra dont lay eggs
+zebra has a backbone 
+zebra has an internal skeleton
+koala is warm-blooded
+koala is a mammal
+koala has hair or fur
+koala has lungs for breathing
+koala has specialized teeth
+koala has large large brains
+koala has a backbone 
+koala has an internal skeleton
+bat is warm-blooded
+bat is a mammal
+bat has hair or fur
+bat has mammary glands
+bat has lungs for breathing
+bat has specialized teeth
+bat dont lay eggs
+bat has a backbone 
+bat has an internal skeleton
+monkey is warm-blooded
+monkey has hair or fur
+monkey has mammary glands
+monkey has lungs for breathing
+monkey has specialized teeth
+monkey has large large brains
+monkey dont lay eggs
+chimpanzee is warm-blooded
+chimpanzee is a mammal
+chimpanzee has hair or fur
+chimpanzee has lungs for breathing
+chimpanzee has large large brains
+chimpanzee dont lay eggs
+chimpanzee has a backbone 
+chimpanzee has an internal skeleton
+porcupine is warm-blooded
+porcupine is a mammal
+porcupine has hair or fur
+porcupine has mammary glands
+porcupine has lungs for breathing
+porcupine has large large brains
+porcupine dont lay eggs
+porcupine has an internal skeleton
+otter is warm-blooded
+otter has hair or fur
+otter has lungs for breathing
+otter has large large brains
+otter dont lay eggs
+otter has a backbone 
+otter has an internal skeleton
+hedgehog is warm-blooded
+hedgehog is a mammal
+hedgehog has hair or fur
+hedgehog has mammary glands
+hedgehog has lungs for breathing
+hedgehog has specialized teeth
+hedgehog has large large brains
+hedgehog dont lay eggs
+hedgehog has a backbone 
+hedgehog has an internal skeleton
+panda is warm-blooded
+panda is a mammal
+panda has lungs for breathing
+panda has specialized teeth
+panda has large large brains
+panda dont lay eggs
+panda has an internal skeleton
+squirrel is warm-blooded
+squirrel is a mammal
+squirrel has mammary glands
+squirrel has lungs for breathing
+squirrel has specialized teeth
+squirrel has large large brains
+squirrel dont lay eggs
+squirrel has a backbone 
+squirrel has an internal skeleton
+raccoon is warm-blooded
+raccoon is a mammal
+raccoon has mammary glands
+raccoon has specialized teeth
+raccoon has large large brains
+raccoon dont lay eggs
+raccoon has a backbone 
+walrus is warm-blooded
+walrus is a mammal
+walrus has hair or fur
+walrus has mammary glands
+walrus has lungs for breathing
+walrus has specialized teeth
+walrus has large large brains
+walrus dont lay eggs
+walrus has a backbone 
+walrus has an internal skeleton
+badger is warm-blooded
+badger is a mammal
+badger has hair or fur
+badger has mammary glands
+badger has lungs for breathing
+badger dont lay eggs
+badger has a backbone 
+badger has an internal skeleton
+guppy swims in water
+guppy eats other fish
+guppy has scales
+guppy has gills
+guppy is a fish
+guppy has fins
+guppy has a swim bladder
+guppy is cold-blooded
+guppy has streamlined body shape
+guppy has lateral line system
+guppy lays eggs
+guppy has a backbone 
+guppy has an internal skeleton
+tetra is a fish
+tetra has fins
+tetra has scales
+tetra has a swim bladder
+tetra is cold-blooded
+tetra has streamlined body shape
+tetra has lateral line system
+tetra lays eggs
+tetra has a backbone 
+tetra has an internal skeleton
+barramundi swims in water
+barramundi eats other fish
+barramundi has scales
+barramundi has gills
+barramundi has fins
+barramundi is cold-blooded
+barramundi has streamlined body shape
+barramundi has a backbone 
+barramundi has an internal skeleton
+tarpon swims in water
+tarpon has scales
+tarpon is a fish
+tarpon has fins
+tarpon has scales
+tarpon has a swim bladder
+tarpon has streamlined body shape
+tarpon has lateral line system
+tarpon lays eggs
+tarpon has a backbone 
+snapper swims in water
+snapper eats other fish
+snapper has scales
+snapper has gills
+snapper is a fish
+snapper has fins
+snapper has scales
+snapper has a swim bladder
+snapper has streamlined body shape
+snapper has lateral line system
+snapper lays eggs
+snapper has a backbone 
+snapper has an internal skeleton
+perch swims in water
+perch eats other fish
+perch has fins
+perch has scales
+perch has a swim bladder
+perch is cold-blooded
+perch has streamlined body shape
+perch has lateral line system
+perch lays eggs
+perch has a backbone 
+perch has an internal skeleton
+trout swims in water
+trout eats other fish
+trout has gills
+trout has fins
+trout is cold-blooded
+trout has streamlined body shape
+trout lays eggs
+trout has a backbone 
+trout has an internal skeleton
+salmon swims in water
+salmon has scales
+salmon has gills
+salmon is a fish
+salmon has fins
+salmon has scales
+salmon has a swim bladder
+salmon has lateral line system
+salmon lays eggs
+salmon has a backbone 
+salmon has an internal skeleton
+pike eats other fish
+pike has scales
+pike has gills
+pike is a fish
+pike has fins
+pike has scales
+pike is cold-blooded
+pike has lateral line system
+pike lays eggs
+pike has a backbone 
+pike has an internal skeleton
+herring swims in water
+herring eats other fish
+herring has scales
+herring has gills
+herring is a fish
+herring has fins
+herring is cold-blooded
+herring has streamlined body shape
+herring has lateral line system
+herring lays eggs
+herring has a backbone 
+herring has an internal skeleton
+sardine swims in water
+sardine has scales
+sardine has gills
+sardine is a fish
+sardine has fins
+sardine has scales
+sardine has a swim bladder
+sardine is cold-blooded
+sardine has streamlined body shape
+sardine lays eggs
+sardine has a backbone 
+sardine has an internal skeleton
+anchovy eats other fish
+anchovy has fins
+anchovy has a swim bladder
+anchovy has lateral line system
+anchovy lays eggs
+anchovy has a backbone 
+bass swims in water
+bass has scales
+bass is a fish
+bass has fins
+bass has scales
+bass has a swim bladder
+bass is cold-blooded
+bass has lateral line system
+bass lays eggs
+bass has a backbone 
+bass has an internal skeleton
+cod swims in water
+cod eats other fish
+cod has scales
+cod has gills
+cod is a fish
+cod has scales
+cod has a swim bladder
+cod is cold-blooded
+cod has streamlined body shape
+cod has lateral line system
+cod lays eggs
+cod has a backbone 
+haddock eats other fish
+haddock has scales
+haddock has gills
+haddock has fins
+haddock has scales
+haddock has a swim bladder
+haddock is cold-blooded
+haddock has streamlined body shape
+haddock has lateral line system
+haddock lays eggs
+haddock has an internal skeleton
+mackerel swims in water
+mackerel eats other fish
+mackerel has scales
+mackerel has gills
+mackerel has fins
+mackerel has scales
+mackerel has a swim bladder
+mackerel is cold-blooded
+mackerel has streamlined body shape
+mackerel lays eggs
+mackerel has a backbone 
+mackerel has an internal skeleton
+tilapia swims in water
+tilapia eats other fish
+tilapia has gills
+tilapia is a fish
+tilapia has fins
+tilapia has scales
+tilapia has a swim bladder
+tilapia is cold-blooded
+tilapia has streamlined body shape
+tilapia has lateral line system
+tilapia lays eggs
+tilapia has an internal skeleton
+swordfish swims in water
+swordfish has scales
+swordfish is a fish
+swordfish has fins
+swordfish has scales
+swordfish has a swim bladder
+swordfish is cold-blooded
+swordfish lays eggs
+swordfish has an internal skeleton
+catfish swims in water
+catfish eats other fish
+catfish has scales
+catfish has gills
+catfish has fins
+catfish has scales
+catfish has a swim bladder
+catfish has streamlined body shape
+catfish lays eggs
+flounder eats other fish
+flounder is a fish
+flounder has fins
+flounder has a swim bladder
+flounder is cold-blooded
+flounder has streamlined body shape
+flounder has a backbone 
+flounder has an internal skeleton
