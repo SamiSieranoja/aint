@@ -47,12 +47,12 @@ class NextWordPredictor(nn.Module):
 		vec2 = x[1]
 		vec3 = x[2]
 		
-		#One-hot vektorista embedding vektori
+		# Embedding vector from one-hot vector
 		emb1 = F.leaky_relu(self.embed(vec1))
 		emb2 = F.leaky_relu(self.embed(vec2))
 		emb3 = F.leaky_relu(self.embed(vec3))
 		
-		# Yhdistetään vektorit (concatenate)
+		# Concatenate vectors
 		contextvec=torch.cat((emb1,emb2,emb3),dim=1)
 		
 		x = F.leaky_relu(self.fc1(contextvec))
@@ -97,7 +97,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 netfn="animal_weights.pth"
 prev = False
-epochs = 200
+epochs = 400
 if os.path.isfile(netfn): 
 	model.load_state_dict(torch.load(netfn, weights_only=True))
 	prev = False
@@ -106,6 +106,7 @@ if os.path.isfile(netfn):
 model.to(device)
 
 (X,y) = create_ds()
+
 # Training loop
 for epoch in range(epochs):
 	outputs = model(X)
@@ -154,9 +155,9 @@ def generate_sentence(context = ["<SOS>", "<SOS>", "<SOS>"]):
 			break
 	print(re.sub("<[ES]OS>\\s*","",sentence))
 	
-# Seuraavat tekstit ei ole osa treeni-datajoukkoa:
+# The following sentences are not part of the training dataset:
 # "mackarel is a fish", " "monkey is a mammal" , "pigeon is a bird"
-# Neuroverkon pitäisi kuitenkin pystyä päättelemään nämä
+# The neural network should still be able to infer these
 
 context = "mackerel is a".split(" ")
 print(" ".join(context))

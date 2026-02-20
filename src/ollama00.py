@@ -2,10 +2,10 @@ import ollama
 import sys
 
 # Define the model
-model = 'llama3.2:1b' # Parempi, toimii ainakin jos koneessa 16GB muistia
-# model = 'qwen:0.5b' # Nopeampi, vaatii vähemmän muistia
+model = 'llama3.2:1b' # Better, works at least if the machine has 16GB of memory
+# model = 'qwen:0.5b' # Faster, requires less memory
 
-# Ollama asennus Linuxissa:
+# Ollama installation on Linux:
 # curl -fsSL https://ollama.com/install.sh | sh
 # ollama pull 'qwen:0.5b' 
 # ollama pull 'llama3.2:1b' 

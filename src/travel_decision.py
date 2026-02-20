@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-# Luennon Neuroverkko-esimerkin toteutus
+# Implementation of the lecture's neural network example
 class TravelDecision(nn.Module):
 	def __init__(self):
 		super(TravelDecision, self).__init__()
@@ -20,11 +20,11 @@ class TravelDecision(nn.Module):
 		
 model = TravelDecision()
 
-# Disabloidaan automaattinen derivointi
-# Asetetaan verkon painot
+# Disable automatic differentiation
+# Set the network weights
 with torch.no_grad():
-	# ensimmäinen rivi [-8,-1] vastaa h3 painoja
-	# toinen rivi h4 painoja
+	# first row [-8,-1] corresponds to h3 weights
+	# second row corresponds to h4 weights
 	model.fc1.weight.copy_(torch.tensor([[-8,-1], [-1,-0.01]]))       
 	model.fc1.bias.copy_(torch.tensor([6, 5]))
 	
@@ -35,13 +35,13 @@ with torch.no_grad():
 	model.fc3.bias.copy_(torch.tensor([0]))
 
 
-print("Hyvä sää (0.2):")
+print("Good Weather (0.2):")
 print(model(torch.tensor([0.2,4.0])))
 
-print("Huono sää (0.8):")
+print("Bad Weather (0.8):")
 print(model(torch.tensor([0.8,4.0])))
 
-print("Pitkä matka (440):")
+print("Long distance (440):")
 print(model(torch.tensor([0.8,440.0])))
 
 
