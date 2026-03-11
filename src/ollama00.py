@@ -17,7 +17,7 @@ import sys
 
 # This one is smallest
 # Requires less than 1GB memory
-# https://ollama.com/library/qwen2.5
+# https://ollama.com/library/qwen3.5
 # ollama pull qwen3:0.6b
 model = 'qwen3:0.6b'
 
