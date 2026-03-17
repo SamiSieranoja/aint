@@ -13,13 +13,13 @@ import sys
 # Select suitable model. Larger is better, but requires more memory
 # https://machinelearningmastery.com/top-7-small-language-models-you-can-run-on-a-laptop/
 
-# Define the model
+# Define which language model to use:
 
 # This one is smallest
 # Requires less than 1GB memory
 # https://ollama.com/library/qwen3.5
-# ollama pull qwen3:0.6b
-model = 'qwen3:0.6b'
+# ollama pull qwen3.5:0.8b
+model = 'qwen3.5:0.8b'
 
 # Requires 2-4GB RAM
 # ollama pull llama3.2:1b
