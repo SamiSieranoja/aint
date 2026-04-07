@@ -27,7 +27,6 @@ print(to_one_hot([0,1,2]))
 class SimpleNeuralNetwork(nn.Module):
     def __init__(self):
         super(SimpleNeuralNetwork, self).__init__()
-        # self.fc1 = nn.Linear(28 * 28, 64)  # 28 * 28 = 784 pixels
         self.fc1 = nn.Linear(28 * 28, 14)  # 28 * 28 = 784 pixels
         self.fc3 = nn.Linear(14, 10)
 
