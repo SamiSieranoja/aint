@@ -19,7 +19,7 @@ m = 0.1
 c = 20
 
 # Learning rates for m and c:
-lr_m = 0.100
+lr_m = 0.0001
 lr_c = 0.1
 
 epochs = 3000  # The number of iterations to perform gradient descent
@@ -77,8 +77,9 @@ def animate(i):
 		t1.set_text(f"m={m} c={c}\nloss={loss}\ny=m*x+c")
 	return line, t1
 
-interval=1e3 #slow
+# interval=1e3 #slow
 interval=1e2 #fast
+# interval=3e2 #fast
 ani = animation.FuncAnimation(fig, animate, frames=len(grad_lines), 
 			interval=interval, blit=True)
 

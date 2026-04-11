@@ -5,7 +5,7 @@ import random
 
 # Estimation of linear regression parameters using random search 
 
-random.seed(8888)
+# random.seed(8888)
 
 # Example based on:
 # https://github.com/chasinginfinity/ml-from-scratch/blob/master/02%20Linear%20Regression%20using%20Gradient%20Descent/.ipynb_checkpoints/Linear%20Regression%20using%20Gradient%20Descent-checkpoint.ipynb
@@ -38,14 +38,14 @@ for i in range(epochs):
 	c_new = c + rand2*lr_c
 	Y_pred = m_new*X + c_new  # The current predicted value of Y
 	loss = sum((Y - Y_pred)**2)
-	if loss < loss_best:
-		m = m_new		
-		c = c_new		
+	improved = loss < loss_best
+	Y_pred_best = m*X + c  # The best found prediction (before update)
+	if improved:
+		m = m_new
+		c = c_new
 		loss_best = loss
-		
-	Y_pred_best = m*X + c  # The best found predicton
-	
-	gradline=[[min(X), max(X)], [min(Y_pred), max(Y_pred)],[min(Y_pred_best), max(Y_pred_best)],m,c,loss]
+
+	gradline=[[min(X), max(X)], [min(Y_pred), max(Y_pred)],[min(Y_pred_best), max(Y_pred_best)],m,c,loss,improved]
 	grad_lines.append(gradline)
 	
 	print(f"loss={loss} m={m} c={c}")
@@ -60,29 +60,41 @@ t1 = ax.text(0.05, 0.95, 'Upper Left Text', fontsize=12, color='black',
 plt.xlabel("Temperature (C)", fontsize=14)
 plt.ylabel("Icre Cream sales (litres)", fontsize=14)
        
-paused = False
+paused = True
+current_frame = 0
+
+def draw_frame(f):
+	gl = grad_lines[f]
+	line.set_data(gl[0], gl[1])
+	line.set_color('orange' if gl[6] else 'blue')
+	line2.set_data(gl[0], gl[2])
+	m = round(gl[3], 3)
+	c = round(gl[4], 3)
+	loss = round(gl[5], 2)
+	t1.set_text(f"m={m} c={c}\nloss={loss}\ny=m*x+c")
+
 def on_key(event):
-	global paused
+	global paused, current_frame
 	if event.key == ' ':  # Space bar to pause/resume
 		paused = not paused
+	elif event.key == '.' and paused:  # Advance one step when paused
+		current_frame = min(current_frame + 1, len(grad_lines) - 1)
+		draw_frame(current_frame)
+		fig.canvas.draw_idle()
 fig.canvas.mpl_connect('key_press_event', on_key)
 
 gl = grad_lines[0]
-line, = ax.plot(gl[0], gl[1], color='red') # predicted
+line, = ax.plot(gl[0], gl[1], color='orange' if gl[6] else 'blue') # predicted (candidate)
 line2, = ax.plot(gl[0], gl[2], color='green') # predicted
 
 def animate(i):
+	global current_frame
 	if not paused:
-		gl = grad_lines[i]
-		line.set_data(gl[0], gl[1]) # predicted
-		line2.set_data(gl[0], gl[2]) # predicted
-		m = round(gl[3],3)
-		c = round(gl[4],3)
-		loss = round(gl[5],2)
-		t1.set_text(f"m={m} c={c}\nloss={loss}\ny=m*x+c")
+		current_frame = i
+		draw_frame(i)
 	return line, line2, t1
 
-interval=1e3 #slow
+# interval=1e3 #slow
 interval=1e2 #fast
 ani = animation.FuncAnimation(fig, animate, frames=len(grad_lines), 
 			interval=interval, blit=True)
