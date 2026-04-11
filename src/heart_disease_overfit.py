@@ -9,6 +9,8 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score
 import matplotlib.pyplot as plt
 
+show_validation = False
+
 # Load dataset
 # https://www.kaggle.com/datasets/volodymyrgavrysh/heart-disease
 heart_data = pd.read_csv('data/heart_disease.csv', delimiter=',')
@@ -34,7 +36,9 @@ y_test = torch.tensor(y_test.values, dtype=torch.float32).unsqueeze(1)
 train_dataset = TensorDataset(x_train, y_train)
 test_dataset = TensorDataset(x_test, y_test)
 
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+# train_batch_size=303
+train_batch_size=32
+train_loader = DataLoader(train_dataset, batch_size=train_batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=32)
 
 # Define the Neural Network
@@ -62,6 +66,8 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 num_epochs = 250
 train_losses=[]
 val_losses=[]
+train_accuracies=[]
+test_accuracies=[]
 for epoch in range(num_epochs):
 	model.train()
 	train_losstmp=[]
@@ -79,14 +85,17 @@ for epoch in range(num_epochs):
 		print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
 		model.eval()
 		with torch.no_grad():
+			y_train_pred = (model(x_train) > 0.5).float()
+			train_acc = accuracy_score(y_train.numpy(), y_train_pred.numpy())
+			train_accuracies.append(train_acc)
+
 			y_pred_probs = model(x_test)
 			loss = criterion(y_pred_probs, y_test)
 			y_pred = (y_pred_probs > 0.5).float()
-			# val_losses+=[loss.mean.item()]
-			# val_losstmp+=[loss.item()]
 			val_losses.append(loss.item())
-		acc = accuracy_score(y_test.numpy(), y_pred.numpy())
-		print(f"Accuracy: {acc:.4f}")
+			test_acc = accuracy_score(y_test.numpy(), y_pred.numpy())
+			test_accuracies.append(test_acc)
+		print(f"Train Accuracy: {train_acc:.4f}  Test Accuracy: {test_acc:.4f}")
 	train_losses+= [np.mean(train_losstmp)]
 	
 
@@ -102,15 +111,26 @@ print(f"Accuracy: {acc:.4f}")
 
 
 # Plotting
-plt.figure(figsize=(12,5))
-plt.subplot(1,2,1)
-plt.plot(train_losses, label='Train Loss')
-# plt.plot(val_losses, label='Val Loss')
-plt.title('Loss over epochs')
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.legend()
+fig, ax1 = plt.subplots(figsize=(10, 5))
 
+ax1.plot(train_accuracies, label='Train Accuracy')
+if show_validation:
+	ax1.plot(test_accuracies, label='Test Accuracy', color='green')
+ax1.set_xlabel('Epoch')
+ax1.set_ylabel('Accuracy')
+ax1.set_title('Accuracy and Loss over epochs')
+
+ax2 = ax1.twinx()
+ax2.plot(train_losses, label='Train Loss', color='orange', linestyle='--')
+if show_validation:
+	ax2.plot(val_losses, label='Val Loss', color='red', linestyle='--')
+ax2.set_ylabel('Loss')
+
+lines1, labels1 = ax1.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+ax1.legend(lines1 + lines2, labels1 + labels2)
+
+plt.tight_layout()
 plt.show()
 # # Confusion Matrix
 # cm = confusion_matrix(y_test.numpy(), y_pred.numpy())
