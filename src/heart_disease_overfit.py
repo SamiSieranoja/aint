@@ -9,7 +9,8 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score
 import matplotlib.pyplot as plt
 
-show_validation = False
+show_validation = True
+show_loss = True
 
 # Load dataset
 # https://www.kaggle.com/datasets/volodymyrgavrysh/heart-disease
@@ -17,14 +18,14 @@ heart_data = pd.read_csv('data/heart_disease.csv', delimiter=',')
 
 # Split into features and target
 X = heart_data.iloc[:, 0:13]
-y = heart_data['target']
+y = heart_data['target'] #  0 = no disease and 1 = disease
 
 # Normalize features
 scaler = MinMaxScaler(feature_range=(0,1))
 X = scaler.fit_transform(X)
 
 # Train-test split
-x_train, x_test, y_train, y_test = train_test_split(X, y, train_size=0.7, random_state=101)
+x_train, x_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=101)
 
 # Convert to torch tensors
 x_train = torch.tensor(x_train, dtype=torch.float32)
@@ -36,8 +37,8 @@ y_test = torch.tensor(y_test.values, dtype=torch.float32).unsqueeze(1)
 train_dataset = TensorDataset(x_train, y_train)
 test_dataset = TensorDataset(x_test, y_test)
 
-# train_batch_size=303
-train_batch_size=32
+train_batch_size=1
+# train_batch_size=32
 train_loader = DataLoader(train_dataset, batch_size=train_batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=32)
 
@@ -51,7 +52,7 @@ class HeartNN(nn.Module):
 			nn.Linear(40, 40),
 			nn.ReLU(),
 			nn.Linear(40, 1),       # Output layer
-			nn.Sigmoid()            # Because it's binary classification
+			nn.Sigmoid()            # [0, 1] [0, inf] Because it's binary classification
 		)
 
 	def forward(self, x):
@@ -60,10 +61,10 @@ class HeartNN(nn.Module):
 # Instantiate model, define loss and optimizer
 model = HeartNN()
 criterion = nn.BCELoss()  # Binary Cross Entropy
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.00001)
 
 # Training loop
-num_epochs = 250
+num_epochs = 375
 train_losses=[]
 val_losses=[]
 train_accuracies=[]
@@ -80,7 +81,6 @@ for epoch in range(num_epochs):
 		train_losstmp+=[loss.item()]
 		loss.backward()
 		optimizer.step()
-	# if (epoch+1) % 1 == 0:
 	if True:
 		print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
 		model.eval()
@@ -120,19 +120,22 @@ ax1.set_xlabel('Epoch')
 ax1.set_ylabel('Accuracy')
 ax1.set_title('Accuracy and Loss over epochs')
 
-ax2 = ax1.twinx()
-ax2.plot(train_losses, label='Train Loss', color='orange', linestyle='--')
-if show_validation:
-	ax2.plot(val_losses, label='Val Loss', color='red', linestyle='--')
-ax2.set_ylabel('Loss')
+if show_loss:
+	ax2 = ax1.twinx()
+	ax2.plot(train_losses, label='Train Loss', color='orange', linestyle='--')
+	if show_validation:
+		ax2.plot(val_losses, label='Val Loss', color='red', linestyle='--')
+	ax2.set_ylabel('Loss')
+	lines2, labels2 = ax2.get_legend_handles_labels()
+else:
+	lines2, labels2 = [], []
 
 lines1, labels1 = ax1.get_legend_handles_labels()
-lines2, labels2 = ax2.get_legend_handles_labels()
 ax1.legend(lines1 + lines2, labels1 + labels2)
 
 plt.tight_layout()
 plt.show()
-# # Confusion Matrix
+# Confusion Matrix
 # cm = confusion_matrix(y_test.numpy(), y_pred.numpy())
 # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0, 1])
 # disp.plot()
