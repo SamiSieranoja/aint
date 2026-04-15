@@ -8,13 +8,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score
 import matplotlib.pyplot as plt
+from pathlib import Path
 
-show_validation = True
+
+show_test = True
 show_loss = True
 
 # Load dataset
 # https://www.kaggle.com/datasets/volodymyrgavrysh/heart-disease
-heart_data = pd.read_csv('data/heart_disease.csv', delimiter=',')
+# heart_data = pd.read_csv('data/heart_disease.csv', delimiter=',')
+heart_data = pd.read_csv(Path(__file__).parent.parent / "data" / "heart_disease.csv")
 
 # Split into features and target
 X = heart_data.iloc[:, 0:13]
@@ -37,8 +40,8 @@ y_test = torch.tensor(y_test.values, dtype=torch.float32).unsqueeze(1)
 train_dataset = TensorDataset(x_train, y_train)
 test_dataset = TensorDataset(x_test, y_test)
 
-train_batch_size=1
-# train_batch_size=32
+# train_batch_size=1
+train_batch_size=32
 train_loader = DataLoader(train_dataset, batch_size=train_batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=32)
 
@@ -50,9 +53,9 @@ class HeartNN(nn.Module):
 			nn.Linear(13, 40),     # 13 input features
 			nn.ReLU(),
 			nn.Linear(40, 40),
-			nn.ReLU(),
+			nn.ReLU(), # range [0, inf] 
 			nn.Linear(40, 1),       # Output layer
-			nn.Sigmoid()            # [0, 1] [0, inf] Because it's binary classification
+			nn.Sigmoid()            # range [0, 1] suitable for binary classification
 		)
 
 	def forward(self, x):
@@ -61,10 +64,10 @@ class HeartNN(nn.Module):
 # Instantiate model, define loss and optimizer
 model = HeartNN()
 criterion = nn.BCELoss()  # Binary Cross Entropy
-optimizer = optim.Adam(model.parameters(), lr=0.00001)
+optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 # Training loop
-num_epochs = 375
+num_epochs = 100
 train_losses=[]
 val_losses=[]
 train_accuracies=[]
@@ -114,7 +117,7 @@ print(f"Accuracy: {acc:.4f}")
 fig, ax1 = plt.subplots(figsize=(10, 5))
 
 ax1.plot(train_accuracies, label='Train Accuracy')
-if show_validation:
+if show_test:
 	ax1.plot(test_accuracies, label='Test Accuracy', color='green')
 ax1.set_xlabel('Epoch')
 ax1.set_ylabel('Accuracy')
@@ -123,8 +126,8 @@ ax1.set_title('Accuracy and Loss over epochs')
 if show_loss:
 	ax2 = ax1.twinx()
 	ax2.plot(train_losses, label='Train Loss', color='orange', linestyle='--')
-	if show_validation:
-		ax2.plot(val_losses, label='Val Loss', color='red', linestyle='--')
+	if show_test:
+		ax2.plot(val_losses, label='Test Loss', color='red', linestyle='--')
 	ax2.set_ylabel('Loss')
 	lines2, labels2 = ax2.get_legend_handles_labels()
 else:
