@@ -76,15 +76,15 @@ def main():
         (5,  5.1),  
     ]
 
-    tour = [1, 4, 5, 3, 7, 6, 4, 0, 2, 8]
-    tour_best = tour
+    tour = [1, 4, 5, 3, 7, 6, 0, 2, 8]
+    tour_best = tour.copy()
     cost_best, _ = tsp_closed_tour_cost(cities, tour)
 
     # hint:
     # a = random.randrange(0,len(cities)-1)
     # ...
             
-    tour = tour_best
+    tour = tour_best.copy()
     total_cost, edge_costs = tsp_closed_tour_cost(cities, tour)
     
 
