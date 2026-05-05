@@ -23,23 +23,25 @@ for l in tokenized:
 	for w in l:
 		words[w]=True
 
+print(tokenized[0]) # ['robin', 'has', 'feathers', 'for', 'flight']
+words["<EOS>"]=True # ... lastword <EOS>
+words["<SOS>"]=True # <SOS> <SOS> <SOS> firstword ...
 vocab = words
-words["<EOS>"]=True
-words["<SOS>"]=True
 word_to_idx = {word: idx for idx, word in enumerate(vocab)}
 idx_to_word = {idx: word for word, idx in word_to_idx.items()}
 num_words = len(vocab)
 print(f"num_words:{num_words}, device={device}")
+
 
 emb_dim=4
 class NextWordPredictor(nn.Module):
 	def __init__(self, input_dim, hidden_dim, vocab_size):
 		super(NextWordPredictor, self).__init__()
 		
-		# Embedding layer
-		self.embed = nn.Linear(num_words, emb_dim)
+		# Embedding layer (input layer)
+		self.embed = nn.Linear(vocab_size, emb_dim)
 		
-		# One hidden layer 
+		# Output layer 
 		self.fc1 = nn.Linear(emb_dim*3, vocab_size)
 		
 	def forward(self, x):
@@ -66,9 +68,6 @@ def create_ds():
 	v2s=[] # Second context word vectors
 	v3s=[]
 	
-	# Extract words
-	tokenized = [re.findall(r'\b\w+\b', l.lower()) for l in corpus]
-
 	for tokens in tokenized:
 		tokens = ["<SOS>","<SOS>","<SOS>"] + tokens +  ["<EOS>"]
 		for i in range(len(tokens) - 3):
@@ -87,6 +86,13 @@ def create_ds():
 	y = torch.tensor(y, dtype=torch.long).to(device)
 	return [[v1s,v2s,v3s],y]
 
+(X,y) = create_ds()
+# num_words: 129 (vocabulary size, length of one-hot vector)
+# 3524: all sequences of length 4
+print([len(X), X[0].shape]) #[3, torch.Size([3524, 129])]
+print(y[0]) # 3524
+print(X[0][0]) # tensor([0., ... 1.]) (dim: 129)
+
 
 input_dim = num_words
 hidden_dim = 512
@@ -98,6 +104,8 @@ optimizer = optim.Adam(model.parameters(), lr=0.01)
 netfn="animal_weights.pth"
 prev = False
 epochs = 400
+# NOTE: Remember to delete animal_weights.pth when running training again
+# Otherwise it loads to old network 
 if os.path.isfile(netfn): 
 	model.load_state_dict(torch.load(netfn, weights_only=True))
 	prev = False
@@ -105,7 +113,6 @@ if os.path.isfile(netfn):
 
 model.to(device)
 
-(X,y) = create_ds()
 
 # Training loop
 for epoch in range(epochs):
