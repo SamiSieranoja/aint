@@ -1,0 +1,22 @@
+# Spam filter with no user-facing interactions
+# Expected: MINIMAL risk
+answers:
+  social_scoring: "no"
+  biometric_realtime: "no"
+  emotion_recognition: "no"
+  employment_use: "no"
+  critical_infrastructure: "no"
+  law_enforcement: "no"
+  migration_border: "no"
+  credit_insurance: "no"
+  justice_democratic: "no"
+  is_chatbot: "no"
+  generates_synthetic: "no"
+  interacts_with_people: "no"
+  predictive_policing: "no"
+  subliminal_manipulation: "no"
+  biometric_categorisation: "no"
+
+expected:
+  primary_tier: "MINIMAL"
+  min_confidence: 0.8

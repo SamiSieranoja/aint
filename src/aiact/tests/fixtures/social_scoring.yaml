@@ -1,0 +1,9 @@
+# Social scoring by a public authority
+# Expected: UNACCEPTABLE (Art. 5(1)(c))
+answers:
+  social_scoring: "yes"
+  public_authority: "yes"
+
+expected:
+  primary_tier: "UNACCEPTABLE"
+  min_confidence: 0.9

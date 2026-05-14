@@ -1,0 +1,12 @@
+# AI system for screening and ranking job applicants
+# Expected: HIGH risk (Annex III, Category 4)
+answers:
+  employment_use: "yes"
+  automates_decisions: "yes"
+  affects_individuals: "yes"
+  is_chatbot: "no"
+  interacts_with_people: "no"
+
+expected:
+  primary_tier: "HIGH"
+  min_confidence: 0.7

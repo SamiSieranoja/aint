@@ -1,0 +1,11 @@
+# Simple customer support chatbot
+# Expected: LIMITED risk (Art. 50 - must disclose AI nature)
+answers:
+  is_chatbot: "yes"
+  interacts_with_people: "yes"
+  employment_use: "no"
+  social_scoring: "no"
+
+expected:
+  primary_tier: "LIMITED"
+  min_confidence: 0.7

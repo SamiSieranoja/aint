@@ -1,0 +1,136 @@
+# EU AI Act questionnaire
+# type: "fuzzy_yes_no"  -> choices: yes/probably_yes/unknown/probably_no/no mapped to float certainty
+# type: "choice"        -> custom choices, clips_slot receives the chosen value's certainty
+
+questions:
+
+  # ── DOMAIN / PURPOSE ─────────────────────────────────────────────────────────
+
+  - id: social_scoring
+    text: "Does the system evaluate or rank natural persons based on their social behaviour, personal characteristics, or predicted behaviour to produce a general score used by public authorities?"
+    type: fuzzy_yes_no
+    clips_slot: social_scoring
+    help: "Example: a system that gives citizens a trustworthiness score affecting access to services."
+
+  - id: public_authority
+    text: "Is the system operated by or on behalf of a public authority (government body, public institution, state agency)?"
+    type: fuzzy_yes_no
+    clips_slot: public_authority
+    depends_on:
+      question: social_scoring
+      values: ["yes", "probably_yes", "unknown"]
+
+  - id: biometric_realtime
+    text: "Does the system identify or verify natural persons in real time using biometric data (face, gait, fingerprint, iris, voice)?"
+    type: fuzzy_yes_no
+    clips_slot: biometric_realtime
+    help: "Real-time means processing without significant delay, e.g. live camera feeds."
+
+  - id: public_space
+    text: "Is the biometric identification deployed in publicly accessible spaces (streets, shops, transport hubs, etc.)?"
+    type: fuzzy_yes_no
+    clips_slot: public_space
+    depends_on:
+      question: biometric_realtime
+      values: ["yes", "probably_yes", "unknown"]
+
+  - id: biometric_categorisation
+    text: "Does the system categorise individuals based on biometric data to infer sensitive attributes such as race, political opinions, religion, or sexual orientation?"
+    type: fuzzy_yes_no
+    clips_slot: biometric_categorisation
+
+  - id: subliminal_manipulation
+    text: "Does the system use techniques that operate below conscious perception (subliminal cues, hidden nudges) to influence behaviour?"
+    type: fuzzy_yes_no
+    clips_slot: subliminal_manipulation
+
+  - id: targets_vulnerable
+    text: "Does the system specifically target vulnerable groups such as children, elderly people, or people with disabilities?"
+    type: fuzzy_yes_no
+    clips_slot: targets_vulnerable
+    depends_on:
+      question: subliminal_manipulation
+      values: ["yes", "probably_yes", "unknown"]
+
+  - id: emotion_recognition
+    text: "Does the system infer or detect the emotional state of natural persons from their facial expressions, voice, physiological signals, or behaviour?"
+    type: fuzzy_yes_no
+    clips_slot: emotion_recognition
+
+  - id: workplace_use
+    text: "Is the system deployed in a workplace or used to monitor employees?"
+    type: fuzzy_yes_no
+    clips_slot: workplace_use
+    depends_on:
+      question: emotion_recognition
+      values: ["yes", "probably_yes", "unknown"]
+
+  - id: education_use
+    text: "Is the system deployed in educational or vocational training institutions?"
+    type: fuzzy_yes_no
+    clips_slot: education_use
+
+  - id: predictive_policing
+    text: "Does the system assess the likelihood that a person will commit a crime or re-offend, based solely on profiling or past behaviour?"
+    type: fuzzy_yes_no
+    clips_slot: predictive_policing
+
+  # ── HIGH RISK DOMAINS ─────────────────────────────────────────────────────────
+
+  - id: employment_use
+    text: "Is the system used in employment contexts such as recruitment, candidate screening, promotion decisions, performance evaluation, or task allocation?"
+    type: fuzzy_yes_no
+    clips_slot: employment_use
+    help: "Example: CV screening tools, interview assessment software, productivity monitoring."
+
+  - id: automates_decisions
+    text: "Does the system automatically produce decisions, recommendations, or rankings that directly affect individuals (without mandatory human review)?"
+    type: fuzzy_yes_no
+    clips_slot: automates_decisions
+
+  - id: affects_individuals
+    text: "Can the system's outputs significantly affect the rights, opportunities, or life circumstances of specific natural persons?"
+    type: fuzzy_yes_no
+    clips_slot: affects_individuals
+
+  - id: critical_infrastructure
+    text: "Is the system a safety component of, or the management system for, critical infrastructure (transport, water supply, energy, digital networks)?"
+    type: fuzzy_yes_no
+    clips_slot: critical_infrastructure
+
+  - id: law_enforcement
+    text: "Is the system used by law enforcement authorities for risk assessment of individuals, lie detection, crime analytics, or evidence evaluation?"
+    type: fuzzy_yes_no
+    clips_slot: law_enforcement
+
+  - id: migration_border
+    text: "Is the system used by border control, immigration, or asylum authorities for individual risk profiling, document verification, or application processing?"
+    type: fuzzy_yes_no
+    clips_slot: migration_border
+
+  - id: credit_insurance
+    text: "Is the system used to assess creditworthiness, determine insurance premiums, or make decisions about individuals' access to essential financial or public services?"
+    type: fuzzy_yes_no
+    clips_slot: credit_insurance
+
+  - id: justice_democratic
+    text: "Is the system used to assist courts or tribunals, or to influence democratic processes (elections, political campaigns, voter information)?"
+    type: fuzzy_yes_no
+    clips_slot: justice_democratic
+
+  # ── LIMITED RISK / TRANSPARENCY ───────────────────────────────────────────────
+
+  - id: is_chatbot
+    text: "Is the system a conversational AI or chatbot that communicates with users using natural language (text or voice)?"
+    type: fuzzy_yes_no
+    clips_slot: is_chatbot
+
+  - id: interacts_with_people
+    text: "Does the system directly interact with or present information to natural persons?"
+    type: fuzzy_yes_no
+    clips_slot: interacts_with_people
+
+  - id: generates_synthetic
+    text: "Does the system generate, manipulate, or alter images, audio, or video to produce realistic synthetic content (deepfakes)?"
+    type: fuzzy_yes_no
+    clips_slot: generates_synthetic

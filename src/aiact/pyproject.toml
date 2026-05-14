@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "aiact"
+version = "0.1.0"
+description = "EU AI Act risk classification expert system"
+requires-python = ">=3.12"
+dependencies = [
+    "clipspy>=1.0.6",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+    "prompt_toolkit>=3.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.0", "pytest-cov"]
+
+[project.scripts]
+aiact = "aiact.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
