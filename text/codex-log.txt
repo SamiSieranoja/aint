@@ -327,3 +327,126 @@ Response summary:
 Provided several concise alternative phrasings of the singularity paragraph,
 each highlighting the distinction between human-directed AI development and AI
 systems autonomously driving their own improvement.
+
+2026-05-18T18:52:57+03:00
+Prompt:
+At end of chapter 2, explain the concept of tensor. Use 0D,1D,2D,3D,4D examples.
+Show corresponding pytorch source code for creating them.
+
+Response summary:
+Reread book.tex before editing, then added a Tensors section near the end of
+Chapter 2 with 0D through 4D tensor examples and PyTorch code for constructing
+each shape.
+
+2026-05-18T18:58:52+03:00
+Prompt:
+When you read the article, also summarize the human made changes (since last edited by codex) in codex-log.txt.
+
+Response summary:
+Recorded the workflow instruction. Future article reads before edits will also
+include a concise summary in codex-log.txt of apparent human-made changes since
+the last Codex edit.
+
+2026-05-18T19:02:37+03:00
+Prompt:
+A 3D tensor can represent a stack or batch of matrices. For example, three grayscale images of size 4 x 4 can be stored with shape [3, 4, 4]. Introduce the concept of the batch before this example, then mention that batch size = 3 in this case.
+
+Human-made changes noticed while rereading:
+The tensor section had been lightly edited since the previous Codex edit:
+TensorFlow was mentioned alongside PyTorch, spacing around the tensor
+introduction changed, and a new "Gradient Descent" chapter stub was added after
+the neural networks chapter.
+
+Response summary:
+Updated the 3D tensor explanation to introduce a batch as several examples
+processed together, then clarified that shape [3, 4, 4] means batch size 3 with
+each example being a 4 by 4 grayscale image.
+
+2026-05-18T19:06:54+03:00
+Prompt:
+Also discuss how modern GPUs implement processing of tensors. Since when not
+just matrices? Give reference to a credible source.
+
+Human-made changes noticed while rereading:
+No additional human-made changes were apparent in the tensor section since the
+last Codex edit.
+
+Response summary:
+Added a concise discussion explaining that modern GPUs store tensors as arrays
+and usually execute tensor operations as matrix multiplication, convolution, and
+elementwise kernels. Mentioned NVIDIA Volta Tensor Cores from 2017 and cited an
+NVIDIA source.
+
+2026-05-18T19:10:28+03:00
+Prompt:
+Produce a visualization of D0,D1,D2,D3 tensors, where D0 is displayed as a 3D
+cube. Put it in the appropriate place in the article.
+
+Human-made changes noticed while rereading:
+No additional human-made changes were apparent in the tensor section since the
+last Codex edit.
+
+Response summary:
+Added a TikZ visualization near the start of the tensor section showing D0 as a
+small 3D cube, D1 as a vector, D2 as a matrix, and D3 as a stack of matrices.
+
+2026-05-18T19:18:00+03:00
+Prompt:
+Create a Finnish translation of the whole document as book-fi.tex. For technical
+terms such as tensor, display the English term in brackets, e.g. "tensori
+(tensor)". For more common but slightly technical terms like "iteration", no
+English term is needed.
+
+Human-made changes noticed while rereading:
+The tensor visualization had been edited since the previous Codex edit: the
+extra faces of the D0 cube were commented out, making it display as a flat
+square, and the introductory 0D tensor paragraph was replaced by a more general
+sentence about N-dimensional tensors.
+
+Response summary:
+Created book-fi.tex as a Finnish translation of the current document, preserving
+mathematical notation, source code examples, URLs, and diagrams. Added English
+terms in parentheses for selected technical terms and kept the D0 tensor
+visualization as a 3D cube in the Finnish version.
+
+2026-05-18T19:25:21+03:00
+Prompt:
+Add public domain Creative Commons License (CC0) and author name (Sami Sieranoja)
+into appropriate place in book.tex and book-fi.tex.
+
+Human-made changes noticed while rereading:
+No additional human-made changes were apparent in the front matter of book.tex or
+book-fi.tex since the last Codex edit.
+
+Response summary:
+Added Sami Sieranoja as the author in the LaTeX metadata and first-page title
+area of both book.tex and book-fi.tex. Added a CC0 1.0 Universal Public Domain
+Dedication notice with the Creative Commons URL to the first page of both
+documents.
+
+2026-05-18T19:44:06+03:00
+Prompt:
+Format the sentence "Different types of $N$-dimensional tensors from $N=0$ to 3.
+There is no limit to the value of $N$." as a label for the tensor picture. Do
+the same in the translated book-fi.tex.
+
+Human-made changes noticed while rereading:
+No additional human-made changes were apparent in the tensor figure area of
+book.tex or book-fi.tex since the last Codex edit.
+
+Response summary:
+Converted the tensor visualization blocks in book.tex and book-fi.tex from
+centered diagrams followed by plain text into figure environments with captions.
+
+2026-05-18T19:45:19+03:00
+Prompt:
+Explain D0 tensor in the context of the PyTorch code.
+
+Human-made changes noticed while rereading:
+No additional human-made changes were apparent in the D0 tensor code area of
+book.tex or book-fi.tex since the last Codex edit.
+
+Response summary:
+Added a concise explanation before the D0 PyTorch code in book.tex and
+book-fi.tex, clarifying that torch.tensor(3.14) is a scalar tensor with no axes
+and shape torch.Size([]), not shape [1].

@@ -19,7 +19,7 @@
 \Urlmuskip=0mu plus 2mu
 
 \title{Artificial Intelligence}
-\author{}
+\author{Sami Sieranoja}
 \date{}
 
 \newcommand{\avec}[1]{\textcolor{blue!70!black}{#1}}
@@ -35,8 +35,13 @@
 
   \begin{center}
       {\LARGE\bfseries Introduction to AI\par}
+       \vspace{0.3em}
+      {\large Sami Sieranoja\par}
        \vspace{0.5em}
       {\small Last updated: \DTMnow\par}
+      \vspace{0.5em}
+      {\small Licensed under Creative Commons CC0 1.0 Universal Public Domain Dedication:
+      \url{https://creativecommons.org/publicdomain/zero/1.0/}\par}
       \vspace{1em}
       {\large\bfseries Contents\par}
   \end{center}
@@ -547,6 +552,123 @@ Applying ReLU again gives the network output
     0 \\ 40
     \end{bmatrix}.
 \]
+
+\section{Tensors}
+
+In machine learning, a \emph{tensor} is a structured container for numerical
+data. It is used in many machine learning frameworks such as PyTorch and Tensorflow.
+  Scalars, vectors, matrices, and higher-dimensional arrays can all be
+viewed as tensors. The number of dimensions is often called the tensor's
+\emph{rank} or \emph{order}. In PyTorch, tensors are represented with
+\texttt{torch.Tensor} objects.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    tensorbox/.style={draw, rounded corners=1pt, minimum width=3.2cm,
+        minimum height=2.7cm},
+    cell/.style={draw, minimum width=0.42cm, minimum height=0.42cm},
+    every node/.style={font=\small}
+]
+    \node[tensorbox] (d0box) at (0,0) {};
+    \node[font=\bfseries] at (0,1.0) {D0};
+    \node at (0,-1.0) {scalar};
+    \draw[fill=blue!18, draw=blue!60!black] (-0.35,-0.2) rectangle (0.35,0.5);
+    % \draw[fill=blue!10, draw=blue!60!black] (-0.35,0.5) -- (-0.12,0.73) -- (0.58,0.73) -- (0.35,0.5) -- cycle;
+    % \draw[fill=blue!25, draw=blue!60!black] (0.35,-0.2) -- (0.58,0.03) -- (0.58,0.73) -- (0.35,0.5) -- cycle;
+
+    \node[tensorbox] (d1box) at (3.8,0) {};
+    \node[font=\bfseries] at (3.8,1.0) {D1};
+    \node at (3.8,-1.0) {vector};
+    \foreach \i in {0,...,4} {
+        \node[cell, fill=green!16] at (3.05+0.38*\i,0.15) {};
+    }
+
+    \node[tensorbox] (d2box) at (7.6,0) {};
+    \node[font=\bfseries] at (7.6,1.0) {D2};
+    \node at (7.6,-1.0) {matrix};
+    \foreach \r in {0,...,2} {
+        \foreach \c in {0,...,3} {
+            \node[cell, fill=orange!18] at (7.05+0.38*\c,0.45-0.38*\r) {};
+        }
+    }
+
+    \node[tensorbox] (d3box) at (11.4,0) {};
+    \node[font=\bfseries] at (11.4,1.0) {D3};
+    \node at (11.4,-1.0) {stack of matrices};
+    \foreach \s/\dx/\dy in {0/0.00/0.00,1/0.20/0.18,2/0.40/0.36} {
+        \draw[fill=purple!10, draw=purple!55!black] (10.65+\dx,-0.35+\dy) rectangle (11.85+\dx,0.45+\dy);
+        \foreach \r in {0,1} {
+            \draw[purple!45!black] (10.65+\dx,-0.35+\dy+0.4*\r) -- (11.85+\dx,-0.35+\dy+0.4*\r);
+        }
+        \foreach \c in {0,1,2} {
+            \draw[purple!45!black] (10.65+\dx+0.4*\c,-0.35+\dy) -- (10.65+\dx+0.4*\c,0.45+\dy);
+        }
+    }
+\end{tikzpicture}
+\caption{Different types of $N$-dimensional tensors from $N=0$ to 3. There is
+no limit to the value of $N$.}
+\end{figure}
+
+A 0D tensor is a scalar tensor. In the PyTorch example below,
+\texttt{torch.tensor(3.14)} creates a tensor that contains the single value
+\texttt{3.14} and has no axes. Therefore its shape is \texttt{torch.Size([])},
+not \texttt{[1]}.
+\begin{verbatim}
+import torch
+
+x0 = torch.tensor(3.14)
+print(x0.shape)  # torch.Size([])
+\end{verbatim}
+
+A 1D tensor is a vector, such as a list of input features.
+\begin{verbatim}
+x1 = torch.tensor([5.0, 12.0, 15.0])
+print(x1.shape)  # torch.Size([3])
+\end{verbatim}
+
+A 2D tensor is a matrix. For example, a weight matrix can map several input
+features to several neurons.
+\begin{verbatim}
+x2 = torch.tensor([
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0],
+])
+print(x2.shape)  # torch.Size([2, 3])
+\end{verbatim}
+
+A 3D tensor can represent a batch of matrices. A \emph{batch} is a group of
+examples processed together in one computation. For example, three grayscale
+images of size $4 \times 4$ can be stored with shape \texttt{[3, 4, 4]}. In this
+case, the batch size is 3, and each example in the batch is a $4 \times 4$
+matrix.
+\begin{verbatim}
+x3 = torch.zeros(3, 4, 4)
+print(x3.shape)  # torch.Size([3, 4, 4])
+\end{verbatim}
+
+A 4D tensor is common in image processing, where data is often organized as
+\texttt{[batch, channels, height, width]}. For example, a batch of eight RGB
+images of size $32 \times 32$ has shape \texttt{[8, 3, 32, 32]}.
+\begin{verbatim}
+x4 = torch.zeros(8, 3, 32, 32)
+print(x4.shape)  # torch.Size([8, 3, 32, 32])
+\end{verbatim}
+
+Tensors are central in neural networks because inputs, outputs, weights,
+activations, gradients, and batches of training examples are all represented as
+tensors. Neural network libraries such as PyTorch are designed to perform tensor
+operations efficiently and to compute gradients through those operations.
+
+Modern GPUs process tensors by storing them as arrays in memory and applying
+many small arithmetic operations in parallel. In practice, high-level tensor
+operations are usually decomposed into matrix multiplication, convolution, and
+elementwise kernels. Since NVIDIA's Volta architecture in 2017, many GPUs have
+also included dedicated \emph{Tensor Cores}, hardware units designed to
+accelerate small matrix multiply-accumulate operations used in neural
+networks.\footnote{\url{https://developer.nvidia.com/blog/programming-tensor-cores-cuda-9/}}
+Thus, although programmers work with tensors of different ranks, the hardware
+often executes tiled matrix operations and related parallel kernels.
 
 \section{Summary}
 
